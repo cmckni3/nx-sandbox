@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
+  "project": {
+    "name": "nx-sandbox",
+    "npmScope": "nx-sandbox",
+    "latestMigration": "20171213-update-tsconfig-spec-to-exclude-e2e"
+  },
+  "apps": [],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "schematics": {
+      "collection": "@nrwl/schematics",
+      "postGenerate": "npm run format",
+      "newProject": ["app", "lib"]
+    },
+    "styleExt": "scss",
+    "component": {},
+    "interface": {
+      "prefix": ""
+    },
+    "pipe": {
+      "flat": false
+    }
+  },
+  "warnings": {
+    "typescriptMismatch": false
+  }
+}
